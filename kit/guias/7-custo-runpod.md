@@ -24,8 +24,8 @@ ou a rede falhar, ela não para a GPU. Use junto com a parada manual e o alerta 
 mkdir -p ~/.segredos && chmod 700 ~/.segredos
 python3 -c "import secrets;print(secrets.token_urlsafe(32))" > ~/.segredos/token-guarda
 chmod 600 ~/.segredos/token-guarda
-export INEMA_TOKEN_LOCAL_ARQ=~/.segredos/token-guarda
-export INEMA_CHAVE_MODELO_ARQ=~/.segredos/chave-modelo     # a chave do endpoint do modelo (chmod 600)
+export ARCKHÉ_TOKEN_LOCAL_ARQ=~/.segredos/token-guarda
+export ARCKHÉ_CHAVE_MODELO_ARQ=~/.segredos/chave-modelo     # a chave do endpoint do modelo (chmod 600)
 python3 kit/scripts/guarda_ociosa.py --upstream https://SEU-ENDPOINT/v1 --ocioso 900
 ```
 
@@ -36,7 +36,7 @@ python3 kit/scripts/guarda_ociosa.py --upstream https://SEU-ENDPOINT/v1 --ocioso
 3. Para ligar a parada real, guarde a chave de controle da RunPod em arquivo privado e reinicie:
 
 ```sh
-export INEMA_CHAVE_RUNPOD_ARQ=~/.segredos/chave-runpod     # chmod 600
+export ARCKHÉ_CHAVE_RUNPOD_ARQ=~/.segredos/chave-runpod     # chmod 600
 python3 kit/scripts/guarda_ociosa.py --upstream https://SEU-ENDPOINT/v1 --ocioso 900 \
   --parar-de-verdade --pod-id SEU_POD_ID --pod-nome "NOME-EXATO-DO-POD"
 ```

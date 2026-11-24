@@ -3,11 +3,11 @@
 
 Regras de fábrica:
   - escuta só em 127.0.0.1 (nunca na rede);
-  - exige um token local (arquivo em INEMA_TOKEN_LOCAL_ARQ) em toda requisição;
+  - exige um token local (arquivo em ARCKHÉ_TOKEN_LOCAL_ARQ) em toda requisição;
   - recusa requisição de navegador (cabeçalho Origin) e qualquer rota fora de /v1/models e /v1/chat/completions;
   - começa em SIMULAÇÃO: só avisa "simulacao_pararia";
   - só para de verdade com --parar-de-verdade + --pod-id + --pod-nome exatos + chave de controle em
-    INEMA_CHAVE_RUNPOD_ARQ; confere ID e nome antes e confirma EXITED depois;
+    ARCKHÉ_CHAVE_RUNPOD_ARQ; confere ID e nome antes e confirma EXITED depois;
   - nunca cria, liga ou apaga Pod.
 
 Ela não é teto de cobrança: se o computador dormir, o processo cair ou outro cliente falar direto com o Pod,
@@ -229,13 +229,13 @@ def main(argv: list[str] | None = None) -> int:
     if a.ocioso < 60:
         ap.error("use pelo menos 60 segundos")
     try:
-        token = ler_segredo("INEMA_TOKEN_LOCAL_ARQ", obrigatorio=True)
-        chave_modelo = ler_segredo("INEMA_CHAVE_MODELO_ARQ")
+        token = ler_segredo("ARCKHÉ_TOKEN_LOCAL_ARQ", obrigatorio=True)
+        chave_modelo = ler_segredo("ARCKHÉ_CHAVE_MODELO_ARQ")
         parar = None
         if a.parar_de_verdade:
             if not a.pod_id or not a.pod_nome:
                 raise ErroDeSeguranca("para parar de verdade, informe --pod-id e --pod-nome exatos")
-            chave_runpod = ler_segredo("INEMA_CHAVE_RUNPOD_ARQ", obrigatorio=True)
+            chave_runpod = ler_segredo("ARCKHÉ_CHAVE_RUNPOD_ARQ", obrigatorio=True)
             parar = lambda: parar_pod(a.pod_id, a.pod_nome, chave_runpod)  # noqa: E731
         relogio = Relogio(a.ocioso, parar)
         srv = montar_servidor(a.upstream, token, chave_modelo, relogio, a.porta)

@@ -2,7 +2,7 @@
 """Gera kit/guia-rapido.pdf: o kit em português num PDF para ler e imprimir.
 
 Junta os Markdown do kit (comece aqui, uso defensivo, os 8 guias, configuração com assistente, prompts e
-verificação) numa página HTML de papel (padrão INEMA: títulos Sora, corpo Inter, amarelo só como preenchimento)
+verificação) numa página HTML de papel (padrão ARCKHÉ: títulos Sora, corpo Inter, amarelo só como preenchimento)
 e imprime com o Chromium headless do Playwright.
 
 Uso: python3 scripts/gera_pdf.py   (precisa do módulo `markdown` e de um chromium/headless_shell)
@@ -91,14 +91,14 @@ def chrome():
 def main():
     capa = base64.b64encode((R / "capa" / "capa.png").read_bytes()).decode()
     partes = [f"""<section class="capa">
-  <div><div class="kicker">INEMA.CLUB · kit em português · outubro de 2026</div>
+  <div><div class="kicker">ARCKHÉ AI · kit em português · outubro de 2026</div>
   <h1>IA <span class="marca">sem censura</span>, do jeito certo</h1>
   <p class="sub">Seu próprio modelo para testar a segurança do <b>seu</b> app: três rotas no DeepSeek Harness
   (API hospedada, GPU na RunPod, LM Studio local), ferramentas, laboratório local e custo sob controle.</p></div>
   <img src="data:image/png;base64,{capa}" alt="">
   <div class="aviso"><b>Uso defensivo.</b> Só sistemas seus ou com permissão por escrito do dono, dentro do escopo
   combinado. Credenciais fora do chat. Confira o que a IA encontrar antes de agir.</div>
-  <div class="rodape"><span>github.com/inematds/ia-sem-censura-defensiva</span><span>inema.club</span></div>
+  <div class="rodape"><span>github.com/linnoff88-dev/ia-sem-censura-defensiva</span><span>ARCKHÉ AI</span></div>
 </section>"""]
     itens = "".join(f"<li>{html.escape(t)}</li>" for _, t in ORDEM) + "<li>Os 9 prompts</li>"
     partes.append(f'<section class="secao sumario"><h1>O que tem aqui</h1><ol>{itens}</ol>'

@@ -16,7 +16,7 @@
     "repositorio": "mradermacher/Huihui-Qwen3.5-9B-abliterated-GGUF",
     "arquivo": "Huihui-Qwen3.5-9B-abliterated.Q6_K.gguf",
     "projetor_de_visao": "Huihui-Qwen3.5-9B-abliterated.mmproj-f16.gguf",
-    "status": "não implantado pelo INEMA; depende da sua conta, da GPU disponível e do runtime"
+    "status": "não implantado pelo ARCKHÉ; depende da sua conta, da GPU disponível e do runtime"
   },
   "velocidade": "nenhum número de tokens por segundo é prometido; rode o checador na sua máquina"
 }

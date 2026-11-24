@@ -26,7 +26,7 @@ Guarde a chave num arquivo privado e aponte a variável para ele:
 mkdir -p ~/.segredos && chmod 700 ~/.segredos
 nano ~/.segredos/chave-modelo      # cole a chave, salve; uma linha só
 chmod 600 ~/.segredos/chave-modelo
-export INEMA_CHAVE_MODELO_ARQ=~/.segredos/chave-modelo
+export ARCKHÉ_CHAVE_MODELO_ARQ=~/.segredos/chave-modelo
 python3 kit/scripts/checa_endpoint.py --base-url https://SEU-PROVEDOR/v1 --modelo SEU-ID --funcao
 ```
 

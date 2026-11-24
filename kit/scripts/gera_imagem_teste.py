@@ -28,7 +28,7 @@ def main() -> None:
     d.text((48, 44), "Teste de visão — imagem sintética", fill=(40, 40, 50), font=fonte(30))
     d.text((48, 96), "Leia o número grande:", fill=(70, 70, 80), font=fonte(26))
     d.text((210, 160), CODIGO, fill=(12, 12, 16), font=fonte(170))
-    d.text((48, 390), "INEMA.CLUB · nenhum dado real", fill=(110, 110, 120), font=fonte(20))
+    d.text((48, 390), "ARCKHÉ AI · nenhum dado real", fill=(110, 110, 120), font=fonte(20))
     DESTINO.parent.mkdir(parents=True, exist_ok=True)
     img.save(DESTINO, optimize=True)
     print(DESTINO, DESTINO.stat().st_size, "bytes")

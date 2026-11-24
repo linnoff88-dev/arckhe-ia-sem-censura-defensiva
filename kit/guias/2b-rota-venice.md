@@ -2,7 +2,7 @@
 
 > Uso defensivo: só sistemas seus ou com permissão por escrito. Credenciais fora do chat.
 > **Status: rota documentada pela documentação pública da Venice (lida em 09/11/2026), ainda não testada
-> com conta pelo INEMA.** Preços e modelos mudam: confira antes de pagar.
+> com conta pelo ARCKHÉ.** Preços e modelos mudam: confira antes de pagar.
 
 ## Por que esta rota
 
@@ -48,7 +48,7 @@ A documentação lida não fala em verificação de identidade, o que não prova
 mkdir -p ~/.segredos && chmod 700 ~/.segredos
 nano ~/.segredos/chave-venice      # cole a chave, salve; uma linha só
 chmod 600 ~/.segredos/chave-venice
-export INEMA_CHAVE_MODELO_ARQ=~/.segredos/chave-venice
+export ARCKHÉ_CHAVE_MODELO_ARQ=~/.segredos/chave-venice
 python3 kit/scripts/checa_endpoint.py --base-url https://api.venice.ai/api/v1 --modelo deepseek-v4-1-flash-1017-uncensored --funcao
 ```
 

@@ -86,7 +86,7 @@ def escopo_lab_local(alvo: str, minutos: int = 10) -> dict:
 
 def checar(escopo: dict, alvo: str) -> dict:
     alvo_ok = validar_escopo(escopo, alvo)
-    req = urllib.request.Request(alvo_ok, method="GET", headers={"User-Agent": "checagem-segura-inema/1"})
+    req = urllib.request.Request(alvo_ok, method="GET", headers={"User-Agent": "checagem-segura-ARCKHÉ/1"})
     with abridor_seguro().open(req, timeout=5) as resp:
         corpo = resp.read(8192)
         if MARCA.encode() not in corpo:

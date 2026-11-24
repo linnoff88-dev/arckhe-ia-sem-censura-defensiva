@@ -1,4 +1,4 @@
-"""Publica o vídeo "IA sem censura, do jeito certo" (explicavideos v2) em inematds/ia-sem-censura-defensiva.
+"""Publica o vídeo "IA sem censura, do jeito certo" (explicavideos v2) em linnoff88-dev/ia-sem-censura-defensiva.
 Release video-v1.0.0 (MP4 16:9 + SRT, e MP4 9:16 se existir) + Pages: videos/index.html com o player, capítulos e legendas VTT.
 Uso: python3 scripts/publica.py   (idempotente: sobe só o que mudou; commit só se houver diff).
 Entradas (fora do repo, na pasta de produção ~/projetos/output/explica-*/v2/ que tiver o MP4 final; ou IA_SEM_CENSURA_OUT=<pasta>):
@@ -25,10 +25,10 @@ def achar_out():
 
 OUT = achar_out()
 REPO = Path(__file__).resolve().parent.parent
-GH = f'inematds/{ID}'
+GH = f'linnoff88-dev/{ID}'
 TAG = 'video-v1.0.0'
 BASE = f'https://github.com/{GH}/releases/download/{TAG}/'
-PAGES = f'https://inematds.github.io/{ID}/'
+PAGES = f'https://linnoff88-dev.github.io/
 TITLE = 'IA sem censura, do jeito certo: seu próprio modelo para segurança defensiva'
 H1 = 'IA sem censura, do <b>jeito certo</b>'
 LEAD = ('Um modelo aberto que não recusa perguntas técnicas, ligado ao DeepSeek Harness por API, GPU na RunPod '
@@ -106,7 +106,7 @@ def main():
             print('upload', f.name, flush=True)
             sh('gh', 'release', 'upload', TAG, str(f), '--repo', GH, '--clobber')
     page = f'''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{html.escape(TITLE)} · INEMA.CLUB</title><meta name="description" content="{html.escape(LEAD)}">
+<title>{html.escape(TITLE)} · ARCKHÉ AI</title><meta name="description" content="{html.escape(LEAD)}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>:root{{color-scheme:dark;--bg:#0c0c10;--card:#15151c;--line:#2a2a35;--tx:#ededf2;--mut:#a3a3b2;--am:#FACC15}}*{{box-sizing:border-box}}
 body{{margin:0;background:var(--bg);color:var(--tx);font:17px/1.6 Inter,system-ui,sans-serif}}main{{max-width:1100px;margin:auto;padding:32px 16px}}
@@ -115,7 +115,7 @@ a{{color:var(--am)}}h1{{font:800 clamp(1.9rem,5vw,3rem)/1.12 Sora,sans-serif;mar
 video{{width:100%;aspect-ratio:16/9;background:#000;border-radius:12px}}.vert video{{aspect-ratio:9/16;max-width:420px;display:block;margin:auto}}
 summary{{cursor:pointer;color:var(--am);margin-top:8px}}button{{display:block;background:var(--bg);color:var(--tx);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:6px 0;text-align:left;cursor:pointer;width:100%;font:inherit}}
 .kit li{{margin:.35em 0}}.etica{{border-left:4px solid #F0918A}}:focus-visible{{outline:3px solid var(--am);outline-offset:3px}}footer{{color:var(--mut);font-size:15px;margin-top:40px}}</style></head>
-<body><main><nav><a href="https://inema.club">INEMA.CLUB</a> · <a href="../guia/">Guia</a> · <a href="https://github.com/{GH}">GitHub</a></nav>
+<body><main><nav><a href="https://ARCKHÉ AI">ARCKHÉ AI</a> · <a href="../guia/">Guia</a> · <a href="https://github.com/{GH}">GitHub</a></nav>
 <h1>{H1}</h1><p class="lead">{html.escape(LEAD)}</p>
 {cards[0]}
 <section class="card"><h2>O kit em português</h2><ul class="kit">
@@ -127,12 +127,12 @@ summary{{cursor:pointer;color:var(--am);margin-top:8px}}button{{display:block;ba
 <p>Passo a passo no <a href="../guia/">guia</a>.</p></section>
 <section class="card etica"><h2>A regra</h2><p>Só sistemas seus ou com permissão por escrito. Escopo registrado antes, laboratório sintético primeiro, credenciais fora do chat. Na RunPod, pare o Pod e confira EXITED.</p></section>
 {''.join(cards[1:])}
-<footer>Conteúdo aberto e gratuito do <a href="https://inema.club">INEMA.CLUB</a>. DeepSeek Harness, LM Studio, RunPod e os modelos citados são de seus autores.</footer></main>
+<footer>Conteúdo aberto e gratuito do <a href="https://ARCKHÉ AI">ARCKHÉ AI</a>. DeepSeek Harness, LM Studio, RunPod e os modelos citados são de seus autores.</footer></main>
 <script>document.querySelectorAll('[data-time]').forEach(b=>b.addEventListener('click',()=>{{const v=b.closest('.card').querySelector('video');v.currentTime=Number(b.dataset.time);v.play();}}));</script></body></html>
 '''
     (folder / 'index.html').write_text(page)
     (folder / 'delivery.json').write_text(json.dumps(delivery, indent=2) + '\n')
-    g = lambda *a: sh('git', '-c', 'user.name=inematds', '-c', 'user.email=inematds@gmail.com', *a, cwd=REPO)
+    g = lambda *a: sh('git', '-c', 'user.name=linnoff88-dev', '-c', 'user.email=linnoff88-dev@gmail.com', *a, cwd=REPO)
     g('add', 'videos')
     if subprocess.run(['git', 'diff', '--cached', '--quiet'], cwd=REPO).returncode:
         g('commit', '-m', 'feat: player do vídeo\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>')

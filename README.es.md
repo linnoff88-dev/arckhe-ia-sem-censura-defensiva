@@ -1,16 +1,16 @@
 # IA sin censura, bien utilizada — tu propio modelo para seguridad defensiva
 
-[![IA sin censura, bien utilizada](guia/assets/banner-es.jpg)](https://inematds.github.io/ia-sem-censura-defensiva/guia/es/)
+[![IA sin censura, bien utilizada](guia/assets/banner-es.jpg)](https://linnoff88-dev.github.io/
 
 **🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
 
 ## Qué es
 
-Este es un kit gratuito de INEMA, en portugués, para quienes estudian seguridad y quieren un modelo de IA abierto que no rechace preguntas técnicas: los llamados modelos *abliterated*, a los que se les eliminó el rechazo. Muestra cómo conectar este modelo a DeepSeek Harness (un agente de código abierto) mediante una API, una GPU alquilada en RunPod o LM Studio en tu computadora. Incluye prompts listos, scripts que comprueban si funcionan el texto, las herramientas y las imágenes, un laboratorio ficticio para practicar y una protección que detiene la GPU cuando está inactiva. Necesitas un asistente que lea archivos, Python 3.10+ y, según la ruta, una cuenta de API o de GPU, además de permiso para todo lo que vayas a probar.
+Este es un kit gratuito de ARCKHÉ, en portugués, para quienes estudian seguridad y quieren un modelo de IA abierto que no rechace preguntas técnicas: los llamados modelos *abliterated*, a los que se les eliminó el rechazo. Muestra cómo conectar este modelo a DeepSeek Harness (un agente de código abierto) mediante una API, una GPU alquilada en RunPod o LM Studio en tu computadora. Incluye prompts listos, scripts que comprueban si funcionan el texto, las herramientas y las imágenes, un laboratorio ficticio para practicar y una protección que detiene la GPU cuando está inactiva. Necesitas un asistente que lea archivos, Python 3.10+ y, según la ruta, una cuenta de API o de GPU, además de permiso para todo lo que vayas a probar.
 
 ## 📖 Guía de uso
 
-Guía completa (landing + paso a paso): **https://inematds.github.io/ia-sem-censura-defensiva/guia/es/**
+Guía completa (landing + paso a paso): **https://linnoff88-dev.github.io/
 
 ## ⚠️ Uso defensivo
 
@@ -33,7 +33,7 @@ Venice sirve modelos sin filtro listos por una API con el estándar de OpenAI (`
 que aceptas gastar: el crédito prepago es el tope. El modelo sin filtro trabaja en una carpeta aparte y tu Claude Code o
 Codex, por la suscripción, lo revisa antes de copiar algo al proyecto real. Paso a paso (en portugués):
 [`kit/guias/2b-rota-venice.md`](kit/guias/2b-rota-venice.md) · prompt [`10-conectar-venice.txt`](kit/prompts/10-conectar-venice.txt).
-Precios leídos en la documentación pública el 09/11/2026; ruta aún no probada con cuenta por INEMA.
+Precios leídos en la documentación pública el 09/11/2026; ruta aún no probada con cuenta por ARCKHÉ.
 
 ## El proceso, de principio a fin
 
@@ -58,8 +58,8 @@ Quién participa: 🧠 tú en una sesión con el asistente · ⚙️ script del 
 
 | Elemento | Ubicación | Quién participa |
 |---|---|---|
-| Guía (PT/EN/ES) | `guia/index.html`, `guia/en/`, `guia/es/` → https://inematds.github.io/ia-sem-censura-defensiva/guia/es/ | 🧠 sesión INEMA → ⚙️ GitHub Pages mediante Actions |
-| Video explicativo | MP4 fuera del repo; release `video-v1.0.0` + reproductor en `videos/` → https://inematds.github.io/ia-sem-censura-defensiva/videos/ | ⚙️ `python3 scripts/publica.py` |
+| Guía (PT/EN/ES) | `guia/index.html`, `guia/en/`, `guia/es/` → https://linnoff88-dev.github.io/ | 🧠 sesión ARCKHÉ → ⚙️ GitHub Pages mediante Actions |
+| Video explicativo | MP4 fuera del repo; release `video-v1.0.0` + reproductor en `videos/` → https://linnoff88-dev.github.io/ | ⚙️ `python3 scripts/publica.py` |
 
 ## Estructura
 
@@ -82,7 +82,7 @@ scripts/    publica.py (sube el video como release y genera el reproductor)
 
 ## Estado (26/10/2026)
 
-- **Probado por INEMA:** las 25 pruebas offline de los scripts y el ciclo laboratorio → hallazgo → corrección por línea de comandos.
+- **Probado por ARCKHÉ:** las 25 pruebas offline de los scripts y el ciclo laboratorio → hallazgo → corrección por línea de comandos.
 - **Observado, no repetido en esta versión:** modelo local Q4_K en LM Studio — texto ✔, función ✔, **imagen ✘** en ese runtime.
 - **No probado:** proveedor de pago, GPU en RunPod, parada real de Pod, Harness/MCPs/Nuclei instalados. Depende de tu cuenta.
 
@@ -90,8 +90,8 @@ Detalles en [`kit/verificacao/STATUS.md`](kit/verificacao/STATUS.md) (en portugu
 
 ## Licencia
 
-[MIT](LICENSE) — texto, prompts, scripts y ejemplos de INEMA. DeepSeek Harness, LM Studio, RunPod, Nuclei, Playwright, Firecrawl y los modelos mencionados pertenecen a sus autores y se rigen por sus propios términos.
+[MIT](LICENSE) — texto, prompts, scripts y ejemplos de ARCKHÉ. DeepSeek Harness, LM Studio, RunPod, Nuclei, Playwright, Firecrawl y los modelos mencionados pertenecen a sus autores y se rigen por sus propios términos.
 
 ---
 
-Contenido abierto y gratuito de **[INEMA.CLUB](https://inema.club)**.
+Contenido abierto y gratuito de **[ARCKHÉ AI](https://ARCKHÉ AI)**.

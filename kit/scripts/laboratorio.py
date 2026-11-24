@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Laboratório sintético do INEMA: uma página falsa, só em 127.0.0.1, para treinar uma checagem defensiva.
+"""Laboratório sintético do ARCKHÉ: uma página falsa, só em 127.0.0.1, para treinar uma checagem defensiva.
 
 Não tem usuário real, banco de dados nem falha explorável. A única "falha" é de configuração:
 faltam dois cabeçalhos de proteção do navegador. Com --corrigido, a página passa a enviá-los.
@@ -13,15 +13,15 @@ import argparse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 PORTA_PADRAO = 8181
-MARCA = "laboratorio-sintetico-inema"  # a checagem segura confere esta marca antes de analisar
+MARCA = "laboratorio-sintetico-ARCKHÉ"  # a checagem segura confere esta marca antes de analisar
 CABECALHOS_CORRECAO = {
     "X-Content-Type-Options": "nosniff",
     "Referrer-Policy": "no-referrer",
 }
 PAGINA = f"""<!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="{MARCA}" content="1">
-<title>Laboratório sintético INEMA</title></head>
-<body><h1>Laboratório sintético INEMA</h1>
+<title>Laboratório sintético ARCKHÉ</title></head>
+<body><h1>Laboratório sintético ARCKHÉ</h1>
 <p>Tudo aqui é inventado. Pratique uma checagem não destrutiva e depois a correção.</p>
 <p>Cliente de exemplo: Maria Exemplo, pedido nº 0000 (dado falso).</p>
 </body></html>""".encode("utf-8")
@@ -29,7 +29,7 @@ PAGINA = f"""<!doctype html>
 
 class Laboratorio(BaseHTTPRequestHandler):
     corrigido = False
-    server_version = "LabINEMA/1"
+    server_version = "LabARCKHÉ/1"
     sys_version = ""
 
     def log_message(self, *args):  # sem log de requisições

@@ -136,14 +136,14 @@ class TestUrlEChave(unittest.TestCase):
             arq = Path(d) / "chave"
             arq.write_text("valor-falso\n")
             os.chmod(arq, 0o644)
-            os.environ["INEMA_TESTE_ARQ"] = str(arq)
+            os.environ["ARCKHÉ_TESTE_ARQ"] = str(arq)
             try:
                 with self.assertRaises(comum.ErroDeSeguranca):
-                    comum.ler_segredo("INEMA_TESTE_ARQ")
+                    comum.ler_segredo("ARCKHÉ_TESTE_ARQ")
                 os.chmod(arq, 0o600)
-                self.assertEqual(comum.ler_segredo("INEMA_TESTE_ARQ"), "valor-falso")
+                self.assertEqual(comum.ler_segredo("ARCKHÉ_TESTE_ARQ"), "valor-falso")
             finally:
-                del os.environ["INEMA_TESTE_ARQ"]
+                del os.environ["ARCKHÉ_TESTE_ARQ"]
 
 
 class TestRelogioOcioso(unittest.TestCase):

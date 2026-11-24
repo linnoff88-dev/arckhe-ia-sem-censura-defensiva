@@ -7,7 +7,7 @@
 4. --imagem: lê um número de uma imagem sintética
 
 Só manda textos inventados. Não dá terminal nem arquivos ao modelo. Não é benchmark.
-A chave vem do arquivo apontado por INEMA_CHAVE_MODELO_ARQ (opcional para endpoint local).
+A chave vem do arquivo apontado por ARCKHÉ_CHAVE_MODELO_ARQ (opcional para endpoint local).
 
 Exemplo:
   python3 kit/scripts/checa_endpoint.py --base-url http://127.0.0.1:1234/v1 --modelo meu-modelo \
@@ -138,7 +138,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--saida", help="grava o relatório JSON neste arquivo")
     a = ap.parse_args(argv)
     try:
-        rel = executar(a.base_url, a.modelo, ler_segredo("INEMA_CHAVE_MODELO_ARQ"), a.funcao, a.imagem)
+        rel = executar(a.base_url, a.modelo, ler_segredo("ARCKHÉ_CHAVE_MODELO_ARQ"), a.funcao, a.imagem)
     except Exception as erro:  # noqa: BLE001
         # Não imprime corpo de resposta, URL completa nem chave: só o tipo do erro.
         rel = {"passou_tudo": False, "erro": type(erro).__name__,

@@ -1,12 +1,12 @@
 # Uncensored AI, the right way — your own model for defensive security
 
-[![Uncensored AI, the right way](guia/assets/banner-en.jpg)](https://inematds.github.io/ia-sem-censura-defensiva/guia/en/)
+[![Uncensored AI, the right way](guia/assets/banner-en.jpg)](https://linnoff88-dev.github.io/
 
 **🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
 
 ## What it is
 
-This is a free INEMA kit, in Portuguese, for people studying security who want an open AI model that
+This is a free ARCKHÉ kit, in Portuguese, for people studying security who want an open AI model that
 doesn’t refuse technical questions — so-called *abliterated* models, from which refusal has been removed. It
 shows how to connect this model to DeepSeek Harness (an open source agent) through an API, a GPU
 rented on RunPod, or LM Studio on your computer. It includes ready-to-use prompts, scripts that verify whether text,
@@ -16,7 +16,7 @@ permission for everything you test.
 
 ## 📖 User guide
 
-Full guide (landing page + step-by-step instructions): **https://inematds.github.io/ia-sem-censura-defensiva/guia/en/**
+Full guide (landing page + step-by-step instructions): **https://linnoff88-dev.github.io/
 
 ## ⚠️ Defensive use
 
@@ -45,7 +45,7 @@ Venice serves ready-made unfiltered models through an OpenAI-style API (`https:/
 are willing to spend: prepaid credit is your cap. The unfiltered model works in a separate folder and your Claude Code or
 Codex, through your subscription, reviews it before you copy anything into the real project. Step by step (in Portuguese):
 [`kit/guias/2b-rota-venice.md`](kit/guias/2b-rota-venice.md) · prompt [`10-conectar-venice.txt`](kit/prompts/10-conectar-venice.txt).
-Prices read in the public documentation on 11/09/2026; route not yet tested with an account by INEMA.
+Prices read in the public documentation on 11/09/2026; route not yet tested with an account by ARCKHÉ.
 
 ## The process, start to finish
 
@@ -70,8 +70,8 @@ Who does what: 🧠 you in a session with the assistant · ⚙️ kit script · 
 
 | Item | Where | Who does it |
 |---|---|---|
-| Guide (PT/EN/ES) | `guia/index.html`, `guia/en/`, `guia/es/` → https://inematds.github.io/ia-sem-censura-defensiva/guia/en/ | 🧠 INEMA session → ⚙️ GitHub Pages via Actions |
-| Explainer video | MP4 outside the repo; release `video-v1.0.0` + player in `videos/` → https://inematds.github.io/ia-sem-censura-defensiva/videos/ | ⚙️ `python3 scripts/publica.py` |
+| Guide (PT/EN/ES) | `guia/index.html`, `guia/en/`, `guia/es/` → https://linnoff88-dev.github.io/ | 🧠 ARCKHÉ session → ⚙️ GitHub Pages via Actions |
+| Explainer video | MP4 outside the repo; release `video-v1.0.0` + player in `videos/` → https://linnoff88-dev.github.io/ | ⚙️ `python3 scripts/publica.py` |
 
 ## Structure
 
@@ -94,7 +94,7 @@ scripts/    publica.py (uploads the video as a release and generates the player)
 
 ## Status (Oct 26, 2026)
 
-- **Tested by INEMA:** all 25 offline script tests and the lab → finding → fix cycle via the command line.
+- **Tested by ARCKHÉ:** all 25 offline script tests and the lab → finding → fix cycle via the command line.
 - **Observed, not repeated in this version:** local Q4_K model in LM Studio — text ✔, function ✔, **image ✘** in that runtime.
 - **Not tested:** paid provider, GPU on RunPod, real Pod shutdown, installed Harness/MCPs/Nuclei. These depend on your account.
 
@@ -102,9 +102,9 @@ Details in [`kit/verificacao/STATUS.md`](kit/verificacao/STATUS.md) (in Portugue
 
 ## License
 
-[MIT](LICENSE) — text, prompts, scripts, and examples by INEMA. DeepSeek Harness, LM Studio, RunPod, Nuclei,
+[MIT](LICENSE) — text, prompts, scripts, and examples by ARCKHÉ. DeepSeek Harness, LM Studio, RunPod, Nuclei,
 Playwright, Firecrawl, and the cited models belong to their respective authors and are subject to their own terms.
 
 ---
 
-Open and free content from **[INEMA.CLUB](https://inema.club)**.
+Open and free content from **[ARCKHÉ AI](https://ARCKHÉ AI)**.

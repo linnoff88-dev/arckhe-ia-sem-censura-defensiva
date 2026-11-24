@@ -1,4 +1,4 @@
-﻿# IA sem censura, do jeito certo â€” seu prÃ³prio modelo para seguranÃ§a defensiva
+# IA sem censura, do jeito certo â€” seu prÃ³prio modelo para seguranÃ§a defensiva
 
 <div align="center">
   <img src="capa/logo.svg" alt="Arckhé AI" height="48" />
@@ -6,13 +6,13 @@
 </div>
 
 
-[![IA sem censura, do jeito certo](guia/assets/banner.jpg)](https://inematds.github.io/ia-sem-censura-defensiva/guia/)
+[![IA sem censura, do jeito certo](guia/assets/banner.jpg)](https://linnoff88-dev.github.io/
 
 **ðŸ‡§ðŸ‡· [PortuguÃªs](README.md) Â· ðŸ‡ºðŸ‡¸ [English](README.en.md) Â· ðŸ‡ªðŸ‡¸ [EspaÃ±ol](README.es.md)**
 
 ## O que Ã©
 
-Este Ã© um kit gratuito do INEMA, em portuguÃªs, para quem estuda seguranÃ§a e quer um modelo de IA aberto que
+Este Ã© um kit gratuito do ARCKHÉ, em portuguÃªs, para quem estuda seguranÃ§a e quer um modelo de IA aberto que
 nÃ£o recuse perguntas tÃ©cnicas â€” os chamados modelos *abliterated*, dos quais a recusa foi removida. Ele
 mostra como ligar esse modelo ao DeepSeek Harness (um agente de cÃ³digo aberto) por uma API, por uma GPU
 alugada na RunPod ou pelo LM Studio no seu computador. Traz prompts prontos, scripts que provam se texto,
@@ -22,7 +22,7 @@ de permissÃ£o para tudo o que for testar.
 
 ## ðŸ“– Guia de uso
 
-Guia completo (landing + passo a passo): **https://inematds.github.io/ia-sem-censura-defensiva/guia/**
+Guia completo (landing + passo a passo): **https://linnoff88-dev.github.io/
 
 ## âš ï¸ Uso defensivo
 
@@ -51,7 +51,7 @@ A Venice serve modelos sem filtro prontos por uma API no padrÃ£o OpenAI (`http
 que aceita gastar: o crÃ©dito prÃ©-pago Ã© o teto. O modelo sem filtro trabalha numa pasta separada e o seu Claude Code ou
 Codex, pela assinatura, revisa antes de vocÃª copiar para o projeto real. Passo a passo:
 [`kit/guias/2b-rota-venice.md`](kit/guias/2b-rota-venice.md) Â· prompt [`10-conectar-venice.txt`](kit/prompts/10-conectar-venice.txt).
-PreÃ§os lidos na documentaÃ§Ã£o pÃºblica em 09/11/2026; rota ainda nÃ£o testada com conta pelo INEMA.
+PreÃ§os lidos na documentaÃ§Ã£o pÃºblica em 09/11/2026; rota ainda nÃ£o testada com conta pelo ARCKHÉ.
 
 ## O processo, do inÃ­cio ao fim
 
@@ -76,8 +76,8 @@ Quem faz: ðŸ§  vocÃª numa sessÃ£o com o assistente Â· âš™ï¸ sc
 
 | PeÃ§a | Onde | Quem faz |
 |---|---|---|
-| Guia (PT/EN/ES) | `guia/index.html`, `guia/en/`, `guia/es/` â†’ https://inematds.github.io/ia-sem-censura-defensiva/guia/ | ðŸ§  sessÃ£o INEMA â†’ âš™ï¸ GitHub Pages via Actions |
-| VÃ­deo explicativo | MP4 fora do repo; release `video-v1.0.0` + player em `videos/` â†’ https://inematds.github.io/ia-sem-censura-defensiva/videos/ | âš™ï¸ `python3 scripts/publica.py` |
+| Guia (PT/EN/ES) | `guia/index.html`, `guia/en/`, `guia/es/` â†’ https://linnoff88-dev.github.io/ | ðŸ§  sessÃ£o ARCKHÉ â†’ âš™ï¸ GitHub Pages via Actions |
+| VÃ­deo explicativo | MP4 fora do repo; release `video-v1.0.0` + player em `videos/` â†’ https://linnoff88-dev.github.io/ | âš™ï¸ `python3 scripts/publica.py` |
 
 ## Estrutura
 
@@ -100,7 +100,7 @@ scripts/    publica.py (sobe o vÃ­deo como release e gera o player)
 
 ## Status (26/10/2026)
 
-- **Testado pelo INEMA:** os 25 testes offline dos scripts e o ciclo laboratÃ³rio â†’ achado â†’ correÃ§Ã£o pela linha de comando.
+- **Testado pelo ARCKHÉ:** os 25 testes offline dos scripts e o ciclo laboratÃ³rio â†’ achado â†’ correÃ§Ã£o pela linha de comando.
 - **Observado, nÃ£o repetido nesta versÃ£o:** modelo local Q4_K no LM Studio â€” texto âœ”, funÃ§Ã£o âœ”, **imagem âœ˜** naquele runtime.
 - **NÃ£o testado:** provedor pago, GPU na RunPod, parada real de Pod, Harness/MCPs/Nuclei instalados. Dependem da sua conta.
 
@@ -108,12 +108,12 @@ Detalhes em [`kit/verificacao/STATUS.md`](kit/verificacao/STATUS.md). Nada aqui 
 
 ## LicenÃ§a
 
-[MIT](LICENSE) â€” texto, prompts, scripts e exemplos do INEMA. DeepSeek Harness, LM Studio, RunPod, Nuclei,
+[MIT](LICENSE) â€” texto, prompts, scripts e exemplos do ARCKHÉ. DeepSeek Harness, LM Studio, RunPod, Nuclei,
 Playwright, Firecrawl e os modelos citados sÃ£o de seus autores, cada um com os seus termos.
 
 ---
 
-ConteÃºdo aberto e gratuito do **[INEMA.CLUB](https://inema.club)**.
+ConteÃºdo aberto e gratuito do **[ARCKHÉ AI](https://ARCKHÉ AI)**.
 
 ---
 

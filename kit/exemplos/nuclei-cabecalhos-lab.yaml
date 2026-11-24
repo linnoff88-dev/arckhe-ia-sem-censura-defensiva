@@ -1,15 +1,15 @@
-# Template PASSIVO do kit INEMA: uma requisição GET que só lê cabeçalhos.
+# Template PASSIVO do kit ARCKHÉ: uma requisição GET que só lê cabeçalhos.
 # Uso: SÓ no laboratório sintético em 127.0.0.1, depois de ler este arquivo inteiro.
 #   nuclei -u http://127.0.0.1:8181/ -t kit/exemplos/nuclei-cabecalhos-lab.yaml -rl 1 -c 1
 # Não envia payload, não explora nada e não deve ser apontado para sistema de terceiros.
-id: inema-lab-cabecalhos-de-protecao
+id: ARCKHÉ-lab-cabecalhos-de-protecao
 
 info:
-  name: Laboratório INEMA - cabeçalhos de proteção ausentes
-  author: inematds
+  name: Laboratório ARCKHÉ - cabeçalhos de proteção ausentes
+  author: linnoff88-dev
   severity: info
   description: Confere se a página do laboratório sintético envia X-Content-Type-Options e Referrer-Policy.
-  tags: inema,laboratorio,cabecalhos,passivo
+  tags: ARCKHÉ,laboratorio,cabecalhos,passivo
 
 http:
   - method: GET
@@ -21,7 +21,7 @@ http:
       - type: word
         part: body
         words:
-          - "laboratorio-sintetico-inema"
+          - "laboratorio-sintetico-ARCKHÉ"
       - type: dsl
         dsl:
           - "!contains(tolower(header), 'x-content-type-options: nosniff') || !contains(tolower(header), 'referrer-policy')"

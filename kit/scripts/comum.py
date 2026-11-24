@@ -1,4 +1,4 @@
-"""Funções comuns dos scripts do kit INEMA "IA sem censura, do jeito certo".
+"""Funções comuns dos scripts do kit ARCKHÉ "IA sem censura, do jeito certo".
 
 Só biblioteca padrão do Python 3.10+. Nada aqui chama a internet sozinho.
 """
