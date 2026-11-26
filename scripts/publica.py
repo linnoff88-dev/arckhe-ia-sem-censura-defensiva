@@ -1,12 +1,12 @@
 """Publica o vídeo "IA sem censura, do jeito certo" (explicavideos v2) em linnoff88-dev/ia-sem-censura-defensiva.
 Release video-v1.0.0 (MP4 16:9 + SRT, e MP4 9:16 se existir) + Pages: videos/index.html com o player, capítulos e legendas VTT.
 Uso: python3 scripts/publica.py   (idempotente: sobe só o que mudou; commit só se houver diff).
-Entradas (fora do repo, na pasta de produção ~/projetos/output/explica-*/v2/ que tiver o MP4 final; ou IA_SEM_CENSURA_OUT=<pasta>):
+Entradas (fora do repo, na pasta de produçêo ~/projetos/output/explica-*/v2/ que tiver o MP4 final; ou IA_SEM_CENSURA_OUT=<pasta>):
   final/ia-sem-censura-defensiva-pt.mp4 (+ .srt ao lado)      obrigatório
   verification/assembled-pt.json                        opcional (capítulos e conferência de bytes)
   docs/lesson-pt.json                                   opcional (títulos dos capítulos)
-  final/9x16/ia-sem-censura-defensiva-pt-9x16.mp4              opcional (versão vertical)
-Não mexe no index.html da raiz (que leva ao guia)."""
+  final/9x16/ia-sem-censura-defensiva-pt-9x16.mp4              opcional (versêo vertical)
+Nêo mexe no index.html da raiz (que leva ao guia)."""
 import html, json, os, re, subprocess, sys, time, urllib.request
 from pathlib import Path
 
@@ -19,7 +19,7 @@ def achar_out():
     achados = sorted(Path.home().glob(f'projetos/output/explica-*/v2/final/{ID}-pt.mp4'))
     if len(achados) != 1:
         sys.exit(f'esperava 1 vídeo final em ~/projetos/output/explica-*/v2/final/{ID}-pt.mp4, achei {len(achados)}; '
-                 'defina IA_SEM_CENSURA_OUT=<pasta de produção>')
+                 'defina IA_SEM_CENSURA_OUT=<pasta de produçêo>')
     return achados[0].parents[2]
 
 
@@ -31,8 +31,8 @@ BASE = f'https://github.com/{GH}/releases/download/{TAG}/'
 PAGES = f'https://linnoff88-dev.github.io/
 TITLE = 'IA sem censura, do jeito certo: seu próprio modelo para segurança defensiva'
 H1 = 'IA sem censura, do <b>jeito certo</b>'
-LEAD = ('Um modelo aberto que não recusa perguntas técnicas, ligado ao DeepSeek Harness por API, GPU na RunPod '
-        'ou LM Studio local. Como provar texto, função e imagem, treinar num laboratório falso e não deixar a GPU '
+LEAD = ('Um modelo aberto que nêo recusa perguntas técnicas, ligado ao DeepSeek Harness por API, GPU na RunPod '
+        'ou LM Studio local. Como provar texto, funçêo e imagem, treinar num laboratório falso e nêo deixar a GPU '
         'cobrando à toa — sempre só no que é seu.')
 V2 = OUT / 'v2'
 FINAL = V2 / 'final'
@@ -57,17 +57,17 @@ def capitulos():
     if not rec_p.exists() or not les_p.exists():
         return []
     rec = json.loads(rec_p.read_text())
-    assert Path(rec['file']) == FULL and FULL.stat().st_size == rec['bytes'], 'assembled-pt.json não bate com o MP4 final'
+    assert Path(rec['file']) == FULL and FULL.stat().st_size == rec['bytes'], 'assembled-pt.json nêo bate com o MP4 final'
     scenes = json.loads(les_p.read_text())
     return [(int(c['time']), scenes[c['scene'] - 1]['title']) for c in rec['chapters']]
 
 
 def main():
     if not FULL.exists():
-        sys.exit(f'vídeo final não encontrado: {FULL}')
+        sys.exit(f'vídeo final nêo encontrado: {FULL}')
     srt = FULL.with_suffix('.srt')
     if not srt.exists():
-        sys.exit(f'legenda não encontrada: {srt}')
+        sys.exit(f'legenda nêo encontrada: {srt}')
     chapters = capitulos()
     tem916 = V916.exists()
     stage = OUT / 'release'; stage.mkdir(exist_ok=True)
@@ -91,7 +91,7 @@ def main():
     delivery = {'16x9': {'url': BASE + f'{ID}-16x9.mp4', 'srt': BASE + f'{ID}-16x9.srt', 'duration': round(d1, 2)}}
     if tem916:
         d2 = dur(V916)
-        cards.append(f'''<section class="card vert"><h2>Versão vertical 9:16 <span>{mmss(d2)}</span></h2>
+        cards.append(f'''<section class="card vert"><h2>Versêo vertical 9:16 <span>{mmss(d2)}</span></h2>
 <video controls preload="metadata" playsinline><source src="{BASE}{ID}-9x16.mp4" type="video/mp4"></video>
 <p><a href="{BASE}{ID}-9x16.mp4">Baixar MP4</a></p></section>''')
         delivery['9x16'] = {'url': BASE + f'{ID}-9x16.mp4', 'duration': round(d2, 2)}
@@ -125,9 +125,9 @@ summary{{cursor:pointer;color:var(--am);margin-top:8px}}button{{display:block;ba
 <li><a href="https://github.com/{GH}/tree/main/kit/scripts">scripts</a> — checador de endpoint, laboratório, checagem com escopo e guarda ociosa</li>
 <li><a href="https://github.com/{GH}/blob/main/kit/verificacao/STATUS.md">STATUS</a> — o que foi testado e o que depende da sua conta</li></ul>
 <p>Passo a passo no <a href="../guia/">guia</a>.</p></section>
-<section class="card etica"><h2>A regra</h2><p>Só sistemas seus ou com permissão por escrito. Escopo registrado antes, laboratório sintético primeiro, credenciais fora do chat. Na RunPod, pare o Pod e confira EXITED.</p></section>
+<section class="card etica"><h2>A regra</h2><p>Só sistemas seus ou com permissêo por escrito. Escopo registrado antes, laboratório sintético primeiro, credenciais fora do chat. Na RunPod, pare o Pod e confira EXITED.</p></section>
 {''.join(cards[1:])}
-<footer>Conteúdo aberto e gratuito do <a href="https://ARCKHÉ AI">ARCKHÉ AI</a>. DeepSeek Harness, LM Studio, RunPod e os modelos citados são de seus autores.</footer></main>
+<footer>Conteúdo aberto e gratuito do <a href="https://ARCKHÉ AI">ARCKHÉ AI</a>. DeepSeek Harness, LM Studio, RunPod e os modelos citados sêo de seus autores.</footer></main>
 <script>document.querySelectorAll('[data-time]').forEach(b=>b.addEventListener('click',()=>{{const v=b.closest('.card').querySelector('video');v.currentTime=Number(b.dataset.time);v.play();}}));</script></body></html>
 '''
     (folder / 'index.html').write_text(page)
@@ -150,7 +150,7 @@ summary{{cursor:pointer;color:var(--am);margin-top:8px}}button{{display:block;ba
             pass
         time.sleep(30)
     else:
-        sys.exit('push e release feitos; Pages ainda não respondeu')
+        sys.exit('push e release feitos; Pages ainda nêo respondeu')
     print('OK', PAGES + 'videos/')
 
 

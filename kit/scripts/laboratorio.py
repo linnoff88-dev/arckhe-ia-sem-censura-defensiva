@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Laboratório sintético do ARCKHÉ: uma página falsa, só em 127.0.0.1, para treinar uma checagem defensiva.
 
-Não tem usuário real, banco de dados nem falha explorável. A única "falha" é de configuração:
-faltam dois cabeçalhos de proteção do navegador. Com --corrigido, a página passa a enviá-los.
+Nêo tem usuário real, banco de dados nem falha explorável. A única "falha" é de configuraçêo:
+faltam dois cabeçalhos de proteçêo do navegador. Com --corrigido, a página passa a enviá-los.
 
-  python3 kit/scripts/laboratorio.py              # porta 8181, versão com os achados
+  python3 kit/scripts/laboratorio.py              # porta 8181, versêo com os achados
   python3 kit/scripts/laboratorio.py --corrigido  # mesma página, já corrigida
 """
 from __future__ import annotations
@@ -22,7 +22,7 @@ PAGINA = f"""<!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="{MARCA}" content="1">
 <title>Laboratório sintético ARCKHÉ</title></head>
 <body><h1>Laboratório sintético ARCKHÉ</h1>
-<p>Tudo aqui é inventado. Pratique uma checagem não destrutiva e depois a correção.</p>
+<p>Tudo aqui é inventado. Pratique uma checagem nêo destrutiva e depois a correçêo.</p>
 <p>Cliente de exemplo: Maria Exemplo, pedido nº 0000 (dado falso).</p>
 </body></html>""".encode("utf-8")
 
@@ -48,7 +48,7 @@ class Laboratorio(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(PAGINA)
 
-    def do_POST(self):  # o laboratório não aceita escrita
+    def do_POST(self):  # o laboratório nêo aceita escrita
         self.send_error(405)
 
 
@@ -60,7 +60,7 @@ def criar_servidor(porta: int = PORTA_PADRAO, corrigido: bool = False) -> Thread
 def main() -> None:
     ap = argparse.ArgumentParser(description="Laboratório sintético só em 127.0.0.1.")
     ap.add_argument("--porta", type=int, default=PORTA_PADRAO)
-    ap.add_argument("--corrigido", action="store_true", help="envia os cabeçalhos de proteção")
+    ap.add_argument("--corrigido", action="store_true", help="envia os cabeçalhos de proteçêo")
     a = ap.parse_args()
     srv = criar_servidor(a.porta, a.corrigido)
     estado = "corrigido" if a.corrigido else "com achados"

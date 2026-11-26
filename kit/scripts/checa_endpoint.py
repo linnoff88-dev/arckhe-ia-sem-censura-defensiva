@@ -3,10 +3,10 @@
 
 1. lista de modelos (o ID que você digitou existe?)
 2. conversa em 2 turnos (o modelo lembra do turno anterior?)
-3. --funcao: uma chamada de função inofensiva (converter 25 °C para Fahrenheit) com ida e volta
+3. --funcao: uma chamada de funçêo inofensiva (converter 25 °C para Fahrenheit) com ida e volta
 4. --imagem: lê um número de uma imagem sintética
 
-Só manda textos inventados. Não dá terminal nem arquivos ao modelo. Não é benchmark.
+Só manda textos inventados. Nêo dá terminal nem arquivos ao modelo. Nêo é benchmark.
 A chave vem do arquivo apontado por ARCKHÉ_CHAVE_MODELO_ARQ (opcional para endpoint local).
 
 Exemplo:
@@ -115,7 +115,7 @@ def checar_imagem(cli: Cliente, modelo: str, caminho: str) -> bool:
 
 def executar(base: str, modelo: str, chave: str | None, funcao: bool, imagem: str | None) -> dict:
     cli = Cliente(base, chave)
-    relatorio: dict = {"modelo": modelo, "tipo": "teste de fumaça com dados inventados; não é benchmark", "resultados": {}}
+    relatorio: dict = {"modelo": modelo, "tipo": "teste de fumaça com dados inventados; nêo é benchmark", "resultados": {}}
     r = relatorio["resultados"]
     inicio = time.monotonic()
     r["modelo_na_lista"] = checar_lista(cli, modelo)
@@ -130,17 +130,17 @@ def executar(base: str, modelo: str, chave: str | None, funcao: bool, imagem: st
 
 
 def main(argv: list[str] | None = None) -> int:
-    ap = argparse.ArgumentParser(description="Checa texto, função e imagem de um endpoint compatível com OpenAI.")
+    ap = argparse.ArgumentParser(description="Checa texto, funçêo e imagem de um endpoint compatível com OpenAI.")
     ap.add_argument("--base-url", required=True, help="ex.: http://127.0.0.1:1234/v1")
     ap.add_argument("--modelo", required=True, help="o ID exato que o servidor devolve em /models")
-    ap.add_argument("--funcao", action="store_true", help="testa uma chamada de função inofensiva")
+    ap.add_argument("--funcao", action="store_true", help="testa uma chamada de funçêo inofensiva")
     ap.add_argument("--imagem", help="caminho da imagem sintética (kit/exemplos/teste-visao.png)")
     ap.add_argument("--saida", help="grava o relatório JSON neste arquivo")
     a = ap.parse_args(argv)
     try:
         rel = executar(a.base_url, a.modelo, ler_segredo("ARCKHÉ_CHAVE_MODELO_ARQ"), a.funcao, a.imagem)
     except Exception as erro:  # noqa: BLE001
-        # Não imprime corpo de resposta, URL completa nem chave: só o tipo do erro.
+        # Nêo imprime corpo de resposta, URL completa nem chave: só o tipo do erro.
         rel = {"passou_tudo": False, "erro": type(erro).__name__,
                "dica": "Confira endpoint, chave, ID do modelo e se o modelo suporta o recurso. Nada secreto foi impresso."}
         if isinstance(erro, ErroDeSeguranca):

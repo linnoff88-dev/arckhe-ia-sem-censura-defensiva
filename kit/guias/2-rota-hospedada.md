@@ -1,22 +1,22 @@
 # 2. Rota API hospedada
 
-> Uso defensivo: só sistemas seus ou com permissão por escrito. Credenciais fora do chat.
+> Uso defensivo: só sistemas seus ou com permissêo por escrito. Credenciais fora do chat.
 
 ## Antes
 
 Rode o prompt **01** (Harness pronto) e depois o **02**. Você precisa de uma conta num provedor que aceite
-uso defensivo e sirva um modelo com protocolo compatível com o Harness. Pode haver verificação de
+uso defensivo e sirva um modelo com protocolo compatível com o Harness. Pode haver verificaçêo de
 identidade e cobrança separada da sua assinatura de chat. Exemplos de provedor: Venice, Abliteration e OrcaRouter. Para a Venice há um passo a passo próprio: [2b-rota-venice.md](2b-rota-venice.md) (prompt 10).
 Termos, modelos e preços mudam: confira no site de cada um (conferido em 26/10/2026).
 
 ## Conectar
 
-1. Na documentação oficial do provedor, copie a **URL base** e o **protocolo** (normalmente "OpenAI compatible").
+1. Na documentaçêo oficial do provedor, copie a **URL base** e o **protocolo** (normalmente "OpenAI compatible").
 2. Crie uma chave só para teste e, se o provedor deixar, um **limite de gasto**.
 3. No Harness: **Settings > Models > Add model provider > Custom model API**. Use
    [`kit/config/campos-do-provedor.json`](../config/campos-do-provedor.json) como folha de preenchimento.
 4. Busque a lista de modelos ou digite o ID exato. Nome na tela e ID podem ser diferentes.
-5. Abra **uma sessão nova** na pasta de teste. Sessões antigas podem continuar com o modelo anterior.
+5. Abra **uma sessêo nova** na pasta de teste. Sessões antigas podem continuar com o modelo anterior.
 
 ## Verificar
 
@@ -31,12 +31,12 @@ python3 kit/scripts/checa_endpoint.py --base-url https://SEU-PROVEDOR/v1 --model
 ```
 
 O checador manda só textos inventados e gasta um pouco de uso da API. Para imagem, acrescente
-`--imagem kit/exemplos/teste-visao.png`. Depois repita a função inofensiva dentro do próprio Harness.
+`--imagem kit/exemplos/teste-visao.png`. Depois repita a funçêo inofensiva dentro do próprio Harness.
 
 ## Desfazer
 
-Feche a sessão de teste, desative só o provedor que você criou e revogue a chave de teste. Olhe o painel
-de uso do provedor. Desinstalar o Harness **não** cancela cobrança nem revoga chave.
+Feche a sessêo de teste, desative só o provedor que você criou e revogue a chave de teste. Olhe o painel
+de uso do provedor. Desinstalar o Harness **nêo** cancela cobrança nem revoga chave.
 
-Documentação oficial: [provedores no Harness](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/guide/providers.md) ·
+Documentaçêo oficial: [provedores no Harness](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/guide/providers.md) ·
 [Abliteration](https://abliteration.ai) · [OrcaRouter](https://orcarouter.com)

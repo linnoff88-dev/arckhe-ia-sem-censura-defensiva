@@ -1,5 +1,5 @@
 {
-  "_leia": "Dois modelos abliterated usados como EXEMPLO, conferidos em 26/10/2026. Nomes, arquivos e tamanhos mudam: confira no Hugging Face antes de baixar. Não é recomendação de segurança.",
+  "_leia": "Dois modelos abliterated usados como EXEMPLO, conferidos em 26/10/2026. Nomes, arquivos e tamanhos mudam: confira no Hugging Face antes de baixar. Nêo é recomendaçêo de segurança.",
   "local_lm_studio": {
     "repositorio": "huihui-ai/Huihui-Qwen3.6-35B-A3B-abliterated-MTP-GGUF",
     "arquivo": "Huihui-Qwen3.6-35B-A3B-abliterated-ggml-model-Q4_K.gguf",
@@ -9,14 +9,14 @@
       "texto_dois_turnos": "passou",
       "funcao_inofensiva": "passou",
       "imagem_sintetica": "FALHOU nesse runtime",
-      "observacao": "resultado observado numa instalação existente; não foi repetido nesta versão do kit"
+      "observacao": "resultado observado numa instalaçêo existente; nêo foi repetido nesta versêo do kit"
     }
   },
   "nuvem_runpod": {
     "repositorio": "mradermacher/Huihui-Qwen3.5-9B-abliterated-GGUF",
     "arquivo": "Huihui-Qwen3.5-9B-abliterated.Q6_K.gguf",
     "projetor_de_visao": "Huihui-Qwen3.5-9B-abliterated.mmproj-f16.gguf",
-    "status": "não implantado pelo ARCKHÉ; depende da sua conta, da GPU disponível e do runtime"
+    "status": "nêo implantado pelo ARCKHÉ; depende da sua conta, da GPU disponível e do runtime"
   },
   "velocidade": "nenhum número de tokens por segundo é prometido; rode o checador na sua máquina"
 }

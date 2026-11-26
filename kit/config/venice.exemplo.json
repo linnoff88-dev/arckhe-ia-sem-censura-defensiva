@@ -1,5 +1,5 @@
 {
-  "_leia": "Folha de preenchimento para Settings > Models > Custom model API do DeepSeek Harness (rota Venice). Não é arquivo de importação. Conferido na documentação pública da Venice em 09/11/2026.",
+  "_leia": "Folha de preenchimento para Settings > Models > Custom model API do DeepSeek Harness (rota Venice). Nêo é arquivo de importaçêo. Conferido na documentaçêo pública da Venice em 09/11/2026.",
   "id_do_provedor": "venice",
   "nome_na_tela": "Venice — DeepSeek V4.1 Flash Uncensored",
   "protocolo": "openai-completions",

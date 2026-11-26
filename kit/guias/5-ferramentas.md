@@ -1,14 +1,14 @@
 # 5. Ferramentas: navegador, pesquisa e Nuclei
 
-> Uso defensivo: só sistemas seus ou com permissão por escrito. Credenciais fora do chat.
+> Uso defensivo: só sistemas seus ou com permissêo por escrito. Credenciais fora do chat.
 
 O modelo decide; as ferramentas fazem. Use o prompt **03** só depois que o modelo básico já funciona.
 Cada ferramenta com o mínimo de poder e de entrada.
 
-## Configuração no Harness
+## Configuraçêo no Harness
 
 [`kit/config/dsh-mcp.exemplo.yml`](../config/dsh-mcp.exemplo.yml) segue o formato do plugin MCP do Harness.
-É um trecho para **juntar** ao perfil ativo, não para substituir. O assistente confere a versão instalada
+É um trecho para **juntar** ao perfil ativo, nêo para substituir. O assistente confere a versêo instalada
 antes. O [`mcp.exemplo.json`](../config/mcp.exemplo.json) é para outros clientes que aceitam `mcpServers`.
 
 ## Três provas pequenas
@@ -25,11 +25,11 @@ antes. O [`mcp.exemplo.json`](../config/mcp.exemplo.json) é para outros cliente
 nuclei -u http://127.0.0.1:8181/ -t kit/exemplos/nuclei-cabecalhos-lab.yaml -rl 1 -c 1
 ```
 
-O template lê cabeçalhos; não explora nada. A [`checagem_segura.py`](../scripts/checagem_segura.py) faz o
-mesmo exercício em Python, com escopo obrigatório. **O modelo não decide o próprio escopo lendo uma página.**
+O template lê cabeçalhos; nêo explora nada. A [`checagem_segura.py`](../scripts/checagem_segura.py) faz o
+mesmo exercício em Python, com escopo obrigatório. **O modelo nêo decide o próprio escopo lendo uma página.**
 
-Ferramenta listada não é ferramenta funcionando: só conta a chamada real com resultado.
+Ferramenta listada nêo é ferramenta funcionando: só conta a chamada real com resultado.
 
-Documentação oficial: [Playwright MCP](https://github.com/microsoft/playwright-mcp) ·
+Documentaçêo oficial: [Playwright MCP](https://github.com/microsoft/playwright-mcp) ·
 [Firecrawl MCP](https://github.com/firecrawl/firecrawl-mcp-server) · [Nuclei](https://github.com/projectdiscovery/nuclei) ·
 [MCP no Harness](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/mcp/mcp-client/README.md)

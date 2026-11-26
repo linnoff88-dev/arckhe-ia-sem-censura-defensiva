@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Checagem segura de cabeçalhos — só no laboratório sintético em 127.0.0.1, só com escopo registrado.
 
-Antes de mandar UMA requisição GET, confere o arquivo de escopo:
-  - status "AUTORIZADO_LAB_LOCAL" e registro de permissão preenchido
+Antes de mandar UMA requisiçêo GET, confere o arquivo de escopo:
+  - status "AUTORIZADO_LAB_LOCAL" e registro de permissêo preenchido
   - o alvo é exatamente o listado em "alvos_permitidos" (e é http://127.0.0.1:<porta>/)
   - dados "sinteticos"
   - a janela de teste tem fuso horário e está valendo agora
-  - limite de no máximo 1 requisição por execução
+  - limite de no máximo 1 requisiçêo por execuçêo
 Recusa host remoto, nome (localhost), redirecionamento, proxy do sistema e caminho fora da raiz.
 
   python3 kit/scripts/checagem_segura.py --lab-local-autorizado
@@ -45,7 +45,7 @@ def _data(texto: str, campo: str) -> dt.datetime:
     try:
         valor = dt.datetime.fromisoformat(texto)
     except (TypeError, ValueError):
-        raise ErroDeSeguranca(f"escopo: '{campo}' não é uma data ISO válida") from None
+        raise ErroDeSeguranca(f"escopo: '{campo}' nêo é uma data ISO válida") from None
     if valor.tzinfo is None:
         raise ErroDeSeguranca(f"escopo: '{campo}' precisa de fuso horário (ex.: -03:00)")
     return valor
@@ -54,21 +54,21 @@ def _data(texto: str, campo: str) -> dt.datetime:
 def validar_escopo(escopo: dict, alvo: str, agora: dt.datetime | None = None) -> str:
     alvo_ok = normalizar_alvo(alvo)
     if escopo.get("status") != STATUS_OK:
-        raise ErroDeSeguranca("escopo negado: status não é AUTORIZADO_LAB_LOCAL")
+        raise ErroDeSeguranca("escopo negado: status nêo é AUTORIZADO_LAB_LOCAL")
     if not str(escopo.get("registro_da_permissao", "")).strip() or "PREENCHA" in str(escopo.get("registro_da_permissao")):
-        raise ErroDeSeguranca("escopo negado: falta o registro da permissão")
+        raise ErroDeSeguranca("escopo negado: falta o registro da permissêo")
     permitidos = [normalizar_alvo(a) for a in escopo.get("alvos_permitidos", [])]
     if permitidos != [alvo_ok]:
-        raise ErroDeSeguranca("escopo negado: o alvo não é exatamente o único alvo permitido")
+        raise ErroDeSeguranca("escopo negado: o alvo nêo é exatamente o único alvo permitido")
     if escopo.get("dados") != "sinteticos":
         raise ErroDeSeguranca("escopo negado: o laboratório precisa ter só dados sintéticos")
     janela = escopo.get("janela") or {}
     inicio, fim = _data(janela.get("inicio"), "inicio"), _data(janela.get("fim"), "fim")
     agora = agora or dt.datetime.now(dt.timezone.utc)
     if not (inicio <= agora < fim):
-        raise ErroDeSeguranca("escopo vencido ou ainda não começou: a janela de teste não vale agora")
+        raise ErroDeSeguranca("escopo vencido ou ainda nêo começou: a janela de teste nêo vale agora")
     if (escopo.get("limites") or {}).get("max_requisicoes") != 1:
-        raise ErroDeSeguranca("escopo negado: esta checagem exige limite de exatamente 1 requisição")
+        raise ErroDeSeguranca("escopo negado: esta checagem exige limite de exatamente 1 requisiçêo")
     return alvo_ok
 
 
@@ -90,7 +90,7 @@ def checar(escopo: dict, alvo: str) -> dict:
     with abridor_seguro().open(req, timeout=5) as resp:
         corpo = resp.read(8192)
         if MARCA.encode() not in corpo:
-            raise ErroDeSeguranca("parei: isto não é o laboratório sintético do kit")
+            raise ErroDeSeguranca("parei: isto nêo é o laboratório sintético do kit")
         recebidos = {k.lower(): v for k, v in resp.headers.items()}
     achados = []
     for nome, esperado in CABECALHOS_CORRECAO.items():
@@ -106,7 +106,7 @@ def checar(escopo: dict, alvo: str) -> dict:
         "requisicoes": 1,
         "laboratorio_sintetico": True,
         "achados": achados,
-        "leitura": "Observação de configuração (endurecimento). Não prova invasão nem vazamento.",
+        "leitura": "Observaçêo de configuraçêo (endurecimento). Nêo prova invasêo nem vazamento.",
     }
 
 

@@ -1,14 +1,14 @@
 # 2b. Rota Venice (API hospedada, sem GPU)
 
-> Uso defensivo: só sistemas seus ou com permissão por escrito. Credenciais fora do chat.
-> **Status: rota documentada pela documentação pública da Venice (lida em 09/11/2026), ainda não testada
+> Uso defensivo: só sistemas seus ou com permissêo por escrito. Credenciais fora do chat.
+> **Status: rota documentada pela documentaçêo pública da Venice (lida em 09/11/2026), ainda nêo testada
 > com conta pelo ARCKHÉ.** Preços e modelos mudam: confira antes de pagar.
 
 ## Por que esta rota
 
 A Venice é um provedor de API que já serve modelos sem filtro prontos, inclusive um DeepSeek rápido e
-barato. Você não precisa de GPU nem de instalar modelo: cria a conta, coloca crédito e liga no Harness
-como "Custom model API". A API segue o padrão OpenAI.
+barato. Você nêo precisa de GPU nem de instalar modelo: cria a conta, coloca crédito e liga no Harness
+como "Custom model API". A API segue o padrêo OpenAI.
 
 | Modelo (ID exato) | Entrada / saída (US$ por 1M tokens) | Contexto | Privacidade |
 |---|---|---|---|
@@ -20,19 +20,19 @@ como "Custom model API". A API segue o padrão OpenAI.
 
 Comece pelo **DeepSeek V4.1 Flash Uncensored**: rápido, barato e com contexto grande para código.
 
-**Privacidade, em uma linha cada** (segundo a Venice): *Private* = o provedor diz não guardar o conteúdo;
+**Privacidade, em uma linha cada** (segundo a Venice): *Private* = o provedor diz nêo guardar o conteúdo;
 *E2EE* = criptografado de ponta a ponta, nem a Venice lê; *Anonymized* = vai para um provedor terceiro
 sem o seu nome, e esse terceiro pode ver o conteúdo. Para dado sensível, prefira Private ou E2EE.
 
-**Conta e pagamento:** e-mail ou carteira; crédito por cartão (não expira), cripto, ou o token DIEM.
-A documentação lida não fala em verificação de identidade, o que não prova que ela nunca será pedida.
+**Conta e pagamento:** e-mail ou carteira; crédito por cartêo (nêo expira), cripto, ou o token DIEM.
+A documentaçêo lida nêo fala em verificaçêo de identidade, o que nêo prova que ela nunca será pedida.
 
 ## Antes
 
 1. Rode o prompt **01** (Harness pronto).
 2. Crie a conta em venice.ai e coloque **só o crédito que você aceita gastar no teste** (US$ 5 bastam
    para centenas de pedidos curtos). O crédito pré-pago é o seu teto.
-3. Gere uma chave de API **só para este teste**. Não reaproveite chave de outro projeto.
+3. Gere uma chave de API **só para este teste**. Nêo reaproveite chave de outro projeto.
 
 ## Conectar (prompt 10 faz isso com você)
 
@@ -40,7 +40,7 @@ A documentação lida não fala em verificação de identidade, o que não prova
 2. Preencha com [`kit/config/venice.exemplo.json`](../config/venice.exemplo.json):
    URL base `https://api.venice.ai/api/v1`, protocolo `openai-completions`, ID `deepseek-v4-1-flash-1017-uncensored`.
 3. Digite a chave direto no app (nunca no chat do assistente).
-4. Abra **uma sessão nova** na pasta de teste.
+4. Abra **uma sessêo nova** na pasta de teste.
 
 ## Verificar
 
@@ -61,15 +61,15 @@ Modelo sem filtro alucina mais que um modelo de ponta. Use os dois juntos:
 
 1. O modelo da Venice trabalha numa **pasta separada** (nunca na pasta do seu projeto real).
 2. O seu Claude Code ou Codex, **pela assinatura**, revisa o que foi feito nessa pasta: lê o código,
-   roda os testes, compara com o pedido e marca o que ficou **não testado**.
+   roda os testes, compara com o pedido e marca o que ficou **nêo testado**.
 3. Só depois você copia para o projeto real.
 
 Assim o modelo sem filtro destrava o pedido e o modelo da assinatura garante a qualidade.
 
 ## Desfazer
 
-Feche a sessão, desative o provedor criado no Harness e **revogue a chave** no painel da Venice.
-Desinstalar o Harness não revoga chave nem devolve crédito.
+Feche a sessêo, desative o provedor criado no Harness e **revogue a chave** no painel da Venice.
+Desinstalar o Harness nêo revoga chave nem devolve crédito.
 
-Documentação oficial: [Venice API](https://docs.venice.ai) · [modelos e preços](https://docs.venice.ai/overview/pricing) ·
+Documentaçêo oficial: [Venice API](https://docs.venice.ai) · [modelos e preços](https://docs.venice.ai/overview/pricing) ·
 [privacidade](https://docs.venice.ai/overview/privacy)

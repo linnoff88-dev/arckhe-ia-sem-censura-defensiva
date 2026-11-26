@@ -1,6 +1,6 @@
 """Funções comuns dos scripts do kit ARCKHÉ "IA sem censura, do jeito certo".
 
-Só biblioteca padrão do Python 3.10+. Nada aqui chama a internet sozinho.
+Só biblioteca padrêo do Python 3.10+. Nada aqui chama a internet sozinho.
 """
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ class ErroDeSeguranca(ValueError):
 
 
 class SemRedirecionar(urllib.request.HTTPRedirectHandler):
-    """Nunca segue redirecionamento: uma chave ou um teste não podem ir parar em outro host."""
+    """Nunca segue redirecionamento: uma chave ou um teste nêo podem ir parar em outro host."""
 
     def redirect_request(self, req, fp, code, msg, headers, newurl):  # noqa: D401
         raise ErroDeSeguranca(f"redirecionamento {code} recusado")
@@ -49,9 +49,9 @@ def validar_url_base(url: str) -> str:
     """
     partes = urllib.parse.urlsplit(url.strip())
     if partes.username or partes.password:
-        raise ErroDeSeguranca("não coloque usuário ou senha dentro da URL")
+        raise ErroDeSeguranca("nêo coloque usuário ou senha dentro da URL")
     if partes.query or partes.fragment:
-        raise ErroDeSeguranca("a URL base não pode ter ?query nem #fragmento")
+        raise ErroDeSeguranca("a URL base nêo pode ter ?query nem #fragmento")
     if not partes.hostname:
         raise ErroDeSeguranca("URL sem host")
     if partes.scheme == "https":
@@ -67,7 +67,7 @@ def ler_segredo(variavel: str, obrigatorio: bool = False) -> str | None:
     """Lê UM segredo do arquivo cujo caminho está na variável de ambiente `variavel`.
 
     O valor nunca vem por argumento de linha de comando (fica no histórico e na lista de processos).
-    No Linux/macOS o arquivo precisa estar com permissão 600.
+    No Linux/macOS o arquivo precisa estar com permissêo 600.
     """
     caminho = os.environ.get(variavel, "").strip()
     if not caminho:
@@ -76,7 +76,7 @@ def ler_segredo(variavel: str, obrigatorio: bool = False) -> str | None:
         return None
     arq = Path(caminho).expanduser()
     if not arq.is_file():
-        raise ErroDeSeguranca(f"{variavel} não aponta para um arquivo")
+        raise ErroDeSeguranca(f"{variavel} nêo aponta para um arquivo")
     if os.name != "nt":
         modo = stat.S_IMODE(arq.stat().st_mode)
         if modo & (stat.S_IRWXG | stat.S_IRWXO):

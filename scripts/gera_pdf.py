@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Gera kit/guia-rapido.pdf: o kit em português num PDF para ler e imprimir.
 
-Junta os Markdown do kit (comece aqui, uso defensivo, os 8 guias, configuração com assistente, prompts e
-verificação) numa página HTML de papel (padrão ARCKHÉ: títulos Sora, corpo Inter, amarelo só como preenchimento)
+Junta os Markdown do kit (comece aqui, uso defensivo, os 8 guias, configuraçêo com assistente, prompts e
+verificaçêo) numa página HTML de papel (padrêo ARCKHÉ: títulos Sora, corpo Inter, amarelo só como preenchimento)
 e imprime com o Chromium headless do Playwright.
 
 Uso: python3 scripts/gera_pdf.py   (precisa do módulo `markdown` e de um chromium/headless_shell)
-Os Markdown continuam sendo a fonte editável; o PDF é só a versão de leitura."""
+Os Markdown continuam sendo a fonte editável; o PDF é só a versêo de leitura."""
 import base64, glob, html, os, re, shutil, subprocess, sys, tempfile
 from pathlib import Path
 
@@ -16,7 +16,7 @@ R = Path(__file__).resolve().parent.parent
 K = R / "kit"
 SAIDA = K / "guia-rapido.pdf"
 
-# (arquivo, título da seção no sumário); prompts entram com o texto inteiro
+# (arquivo, título da seçêo no sumário); prompts entram com o texto inteiro
 ORDEM = [
     ("COMECE-AQUI.md", "Comece aqui"),
     ("USO-DEFENSIVO.md", "Uso defensivo"),
@@ -30,7 +30,7 @@ ORDEM = [
     ("guias/8-problemas-comuns.md", "Problemas comuns"),
     ("CONFIGURA-COM-ASSISTENTE.md", "Configurar com o seu assistente"),
     ("verificacao/STATUS.md", "O que foi testado"),
-    ("verificacao/checklist.md", "Checklist da sua instalação"),
+    ("verificacao/checklist.md", "Checklist da sua instalaçêo"),
 ]
 
 CSS = """
@@ -74,7 +74,7 @@ h1, h2, h3 { break-after: avoid; page-break-after: avoid; }
 
 
 def md_html(texto):
-    # links internos .md viram texto (no PDF não há para onde ir); externos ficam
+    # links internos .md viram texto (no PDF nêo há para onde ir); externos ficam
     texto = re.sub(r"\[([^\]]+)\]\((?!https?:)[^)]+\)", r"**\1**", texto)
     return markdown.markdown(texto, extensions=["tables", "fenced_code", "sane_lists"])
 
@@ -96,21 +96,21 @@ def main():
   <p class="sub">Seu próprio modelo para testar a segurança do <b>seu</b> app: três rotas no DeepSeek Harness
   (API hospedada, GPU na RunPod, LM Studio local), ferramentas, laboratório local e custo sob controle.</p></div>
   <img src="data:image/png;base64,{capa}" alt="">
-  <div class="aviso"><b>Uso defensivo.</b> Só sistemas seus ou com permissão por escrito do dono, dentro do escopo
+  <div class="aviso"><b>Uso defensivo.</b> Só sistemas seus ou com permissêo por escrito do dono, dentro do escopo
   combinado. Credenciais fora do chat. Confira o que a IA encontrar antes de agir.</div>
   <div class="rodape"><span>github.com/linnoff88-dev/ia-sem-censura-defensiva</span><span>ARCKHÉ AI</span></div>
 </section>"""]
     itens = "".join(f"<li>{html.escape(t)}</li>" for _, t in ORDEM) + "<li>Os 9 prompts</li>"
     partes.append(f'<section class="secao sumario"><h1>O que tem aqui</h1><ol>{itens}</ol>'
-                  "<p>Os arquivos editáveis (Markdown, prompts, scripts e testes) estão no repositório. Este PDF é a "
-                  "versão de leitura do mesmo conteúdo.</p></section>")
+                  "<p>Os arquivos editáveis (Markdown, prompts, scripts e testes) estêo no repositório. Este PDF é a "
+                  "versêo de leitura do mesmo conteúdo.</p></section>")
     for arq, _ in ORDEM:
         partes.append(f'<section class="secao">{md_html((K / arq).read_text(encoding="utf-8"))}</section>')
     prompts = sorted(p for p in (K / "prompts").glob("0*.txt"))
     corpo = "".join(f'<div class="prompt"><h3>{html.escape(p.stem)}</h3><pre><code>'
                     f'{html.escape(p.read_text(encoding="utf-8").strip())}</code></pre></div>' for p in prompts)
     partes.append(f'<section class="secao"><h1>Os 9 prompts</h1><p>Copie na ordem da sua rota. Cada um traz o '
-                  f'bloco de segurança; não tire.</p>{corpo}</section>')
+                  f'bloco de segurança; nêo tire.</p>{corpo}</section>')
     pagina = ("<!doctype html><html lang='pt-BR'><head><meta charset='utf-8'><title>IA sem censura, do jeito certo</title>"
               "<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@600;700&"
               "family=JetBrains+Mono&display=swap' rel='stylesheet'>"

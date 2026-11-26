@@ -1,12 +1,12 @@
-# Trecho de exemplo para JUNTAR ao perfil ativo do DeepSeek Harness (não substitui o perfil inteiro).
-# Confira o formato do plugin MCP na versão instalada antes de colar. Uso defensivo.
+# Trecho de exemplo para JUNTAR ao perfil ativo do DeepSeek Harness (nêo substitui o perfil inteiro).
+# Confira o formato do plugin MCP na versêo instalada antes de colar. Uso defensivo.
 - id: ARCKHÉ-navegador
   name: '@deepseek-ai/dsh-mcp-client'
   config:
     serverName: ARCKHÉ-navegador
     transport: stdio
     command: npx
-    # versão fixada no kit em 26/10/2026; confira a atual antes de trocar
+    # versêo fixada no kit em 26/10/2026; confira a atual antes de trocar
     args: ['-y', '@playwright/mcp@0.0.83', '--isolated']
 - id: ARCKHÉ-pesquisa
   name: '@deepseek-ai/dsh-mcp-client'

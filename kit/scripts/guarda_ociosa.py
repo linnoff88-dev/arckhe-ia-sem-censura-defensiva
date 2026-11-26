@@ -3,15 +3,15 @@
 
 Regras de fábrica:
   - escuta só em 127.0.0.1 (nunca na rede);
-  - exige um token local (arquivo em ARCKHÉ_TOKEN_LOCAL_ARQ) em toda requisição;
-  - recusa requisição de navegador (cabeçalho Origin) e qualquer rota fora de /v1/models e /v1/chat/completions;
-  - começa em SIMULAÇÃO: só avisa "simulacao_pararia";
+  - exige um token local (arquivo em ARCKHÉ_TOKEN_LOCAL_ARQ) em toda requisiçêo;
+  - recusa requisiçêo de navegador (cabeçalho Origin) e qualquer rota fora de /v1/models e /v1/chat/completions;
+  - começa em SIMULAÇêO: só avisa "simulacao_pararia";
   - só para de verdade com --parar-de-verdade + --pod-id + --pod-nome exatos + chave de controle em
     ARCKHÉ_CHAVE_RUNPOD_ARQ; confere ID e nome antes e confirma EXITED depois;
   - nunca cria, liga ou apaga Pod.
 
-Ela não é teto de cobrança: se o computador dormir, o processo cair ou outro cliente falar direto com o Pod,
-ela não vê. Armazenamento continua cobrando com o Pod parado.
+Ela nêo é teto de cobrança: se o computador dormir, o processo cair ou outro cliente falar direto com o Pod,
+ela nêo vê. Armazenamento continua cobrando com o Pod parado.
 
   python3 kit/scripts/guarda_ociosa.py --upstream https://SEU-ENDPOINT/v1 --ocioso 900
 """
@@ -118,7 +118,7 @@ def parar_pod(pod_id: str, pod_nome: str, chave: str, api: str = API_RUNPOD,
 
     antes = chamar("GET", base)
     if antes.get("id") != pod_id or antes.get("name") != pod_nome:
-        raise ErroDeSeguranca("o Pod encontrado não tem o ID e o nome informados; nada foi parado")
+        raise ErroDeSeguranca("o Pod encontrado nêo tem o ID e o nome informados; nada foi parado")
     if antes.get("desiredStatus") == "EXITED":
         return True
     chamar("POST", base + "/stop")
@@ -136,7 +136,7 @@ class Encaminhador(BaseHTTPRequestHandler):
     chave_upstream: str | None = None
     token_local: str = ""
 
-    def log_message(self, *args):  # não registra pedidos, respostas nem chaves
+    def log_message(self, *args):  # nêo registra pedidos, respostas nem chaves
         return
 
     def do_GET(self):
@@ -218,11 +218,11 @@ def montar_servidor(upstream: str, token_local: str, chave_upstream: str | None,
 
 
 def main(argv: list[str] | None = None) -> int:
-    ap = argparse.ArgumentParser(description="Proxy local com guarda de tempo ocioso (simulação por padrão).")
+    ap = argparse.ArgumentParser(description="Proxy local com guarda de tempo ocioso (simulaçêo por padrêo).")
     ap.add_argument("--upstream", required=True, help="endpoint autenticado do modelo, terminando em /v1")
     ap.add_argument("--porta", type=int, default=PORTA_PADRAO)
     ap.add_argument("--ocioso", type=int, default=900, help="segundos sem uso antes de agir (mínimo 60)")
-    ap.add_argument("--parar-de-verdade", action="store_true", help="sai da simulação e para o Pod indicado")
+    ap.add_argument("--parar-de-verdade", action="store_true", help="sai da simulaçêo e para o Pod indicado")
     ap.add_argument("--pod-id")
     ap.add_argument("--pod-nome")
     a = ap.parse_args(argv)
@@ -240,7 +240,7 @@ def main(argv: list[str] | None = None) -> int:
         relogio = Relogio(a.ocioso, parar)
         srv = montar_servidor(a.upstream, token, chave_modelo, relogio, a.porta)
     except Exception as erro:  # noqa: BLE001
-        print(f"Configuração recusada: {erro}", file=sys.stderr)
+        print(f"Configuraçêo recusada: {erro}", file=sys.stderr)
         return 2
     fim = threading.Event()
 
@@ -251,7 +251,7 @@ def main(argv: list[str] | None = None) -> int:
                 print(json.dumps({"guarda_ociosa": evento}), flush=True)
 
     threading.Thread(target=vigiar, daemon=True).start()
-    modo = "PARADA REAL" if a.parar_de_verdade else "SIMULAÇÃO"
+    modo = "PARADA REAL" if a.parar_de_verdade else "SIMULAÇêO"
     print(json.dumps({"escutando": f"http://127.0.0.1:{a.porta}/v1", "modo": modo, "ocioso_s": a.ocioso},
                      ensure_ascii=False), flush=True)
     try:

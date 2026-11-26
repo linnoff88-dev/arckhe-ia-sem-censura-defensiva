@@ -130,7 +130,7 @@ class TestUrlEChave(unittest.TestCase):
             with self.subTest(url=url), self.assertRaises(comum.ErroDeSeguranca):
                 comum.validar_url_base(url)
 
-    @unittest.skipIf(os.name == "nt", "permissão de arquivo é do Linux/macOS")
+    @unittest.skipIf(os.name == "nt", "permissêo de arquivo é do Linux/macOS")
     def test_chave_com_permissao_aberta_recusada(self):
         with tempfile.TemporaryDirectory() as d:
             arq = Path(d) / "chave"
@@ -174,7 +174,7 @@ class TestRelogioOcioso(unittest.TestCase):
         t[0] = 1061
         self.assertEqual(r.verificar(), guarda_ociosa.PARADO)
         self.assertEqual(len(chamadas), 1)
-        self.assertFalse(r.entrar())  # depois de parado, não aceita mais pedidos
+        self.assertFalse(r.entrar())  # depois de parado, nêo aceita mais pedidos
 
     def test_falha_de_parada_nao_vira_sucesso(self):
         for parar in (lambda: False, lambda: 1 / 0):
@@ -272,7 +272,7 @@ class ModeloFalso(BaseHTTPRequestHandler):
         if isinstance(ultima.get("content"), list):
             msg = {"role": "assistant", "content": checa_endpoint.CODIGO_DA_IMAGEM}
         elif ultima["role"] == "tool":
-            msg = {"role": "assistant", "content": "25 °C são 77 °F."}
+            msg = {"role": "assistant", "content": "25 °C sêo 77 °F."}
         elif corpo.get("tools"):
             msg = {"role": "assistant", "content": None, "tool_calls": [{"id": "c1", "type": "function", "function": {
                 "name": "celsius_para_fahrenheit", "arguments": json.dumps({"celsius": 25})}}]}

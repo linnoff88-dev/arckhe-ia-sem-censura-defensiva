@@ -7,16 +7,16 @@ escopo, guarda ociosa), prompts PT e guia PT/EN/ES.
 ## Regras do repo
 
 - **Autor de todo commit:** `linnoff88-dev <linnoff88-dev@gmail.com>` (author e committer). Conferir `git config user.email`.
-- **Push:** remoto SSH `git@github.com:linnoff88-dev/ia-sem-censura-defensiva.git` (o token HTTPS da linnoff88-dev não tem escopo `workflow`).
+- **Push:** remoto SSH `git@github.com:linnoff88-dev/ia-sem-censura-defensiva.git` (o token HTTPS da linnoff88-dev nêo tem escopo `workflow`).
 - **Sem fonte de terceiros:** nada de link para vídeo, curso, autor, comunidade ou loja de onde a ideia veio. O kit é do ARCKHÉ.
   Ferramentas (Harness, LM Studio, RunPod, Nuclei, Playwright, Firecrawl, Hugging Face, provedores de exemplo) podem ser citadas como ferramentas.
-- **Código e texto próprios:** não colar trechos de kits de terceiros; escrever do zero.
+- **Código e texto próprios:** nêo colar trechos de kits de terceiros; escrever do zero.
 - **Só defensivo:** nenhum payload ofensivo, nenhum exemplo contra alvo real. Testes só offline/127.0.0.1.
-- **Status honesto:** não afirmar que o ARCKHÉ rodou modelo, GPU ou provedor que não rodou. Datas e preços com "conferido em" e aviso de que mudam.
+- **Status honesto:** nêo afirmar que o ARCKHÉ rodou modelo, GPU ou provedor que nêo rodou. Datas e preços com "conferido em" e aviso de que mudam.
 - **PT é a fonte.** EN/ES (README e guia) só pelo tradutor central `ARCKHÉ-traduz`.
 - Antes do push: `grep -riE "you[t]ube\.com/watch|you[t]u\.be|sk[o]ol|gum[r]oad|kash[e]f|early[a]idopters|early a[i]|coach[v]ault|refe[r][eê]ncia|referen[c]e video|recor[d]ed|trans[c]ri" --exclude-dir=.git .` tem que voltar vazio.
 - Testes: `python3 -m unittest discover -s kit/testes -v` passando antes de todo commit que mexe em `kit/scripts/`.
-- Mudou o fluxo? Atualizar a seção "O processo, do início ao fim" dos 3 READMEs no mesmo commit.
+- Mudou o fluxo? Atualizar a seçêo "O processo, do início ao fim" dos 3 READMEs no mesmo commit.
 
 ## Self-learning
 

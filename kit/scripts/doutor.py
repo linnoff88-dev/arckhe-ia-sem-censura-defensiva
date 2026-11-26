@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Doutor do kit: confere o que já está instalado. Só lê versões; não instala nada e não abre chave nenhuma.
+"""Doutor do kit: confere o que já está instalado. Só lê versões; nêo instala nada e nêo abre chave nenhuma.
 
   python3 kit/scripts/doutor.py
 """
@@ -15,13 +15,13 @@ import sys
 
 def versao(*comando: str) -> str:
     if not shutil.which(comando[0]):
-        return "não instalado"
+        return "nêo instalado"
     try:
         r = subprocess.run(comando, capture_output=True, text=True, timeout=15)
         linhas = (r.stdout or r.stderr).strip().splitlines()
-        return linhas[0] if linhas else "instalado (sem versão)"
+        return linhas[0] if linhas else "instalado (sem versêo)"
     except Exception:  # noqa: BLE001
-        return "instalado (não respondeu à versão)"
+        return "instalado (nêo respondeu à versêo)"
 
 
 def porta_livre(porta: int) -> bool:
@@ -37,7 +37,7 @@ def diagnostico() -> dict:
         "python_ok_3_10": sys.version_info >= (3, 10),
         "node": versao("node", "--version"),
         "deepseek_harness_dsh": versao("dsh", "--version"),
-        "lm_studio_cli_lms": "encontrado" if shutil.which("lms") else "não encontrado",
+        "lm_studio_cli_lms": "encontrado" if shutil.which("lms") else "nêo encontrado",
         "nuclei": versao("nuclei", "-version"),
         "portas_livres": {
             "8181 laboratório": porta_livre(8181),
